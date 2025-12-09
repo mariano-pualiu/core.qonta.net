@@ -1,0 +1,107 @@
+services:
+    qonta.core:
+        build:
+            context: './vendor/laravel/sail/runtimes/8.5'
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: '${WWWGROUP}'
+        image: 'sail-8.5/app'
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+        ports:
+            - '${APP_PORT:-80}:80'
+            - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
+        environment:
+            WWWUSER: '${WWWUSER}'
+            LARAVEL_SAIL: 1
+            XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
+            XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
+            IGNITION_LOCAL_SITES_PATH: '${PWD}'
+        volumes:
+            - '.:/var/www/html'
+        networks:
+            core-ntw:
+                aliases:
+                    - core.qonta.net
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.core.rule=Host(`core.qonta.net`)"
+            - "traefik.http.services.core.loadbalancer.server.port=80"
+        depends_on:
+            - core.db.mongo
+            - core.db.mysql
+            - core.cache
+    core.db.mysql:
+        image: 'mysql:8.4'
+        ports:
+            - '${DB_PORT_FORWARD:-3306}:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ROOT_HOST: '%'
+            MYSQL_DATABASE: '${DB_DATABASE}'
+            MYSQL_USER: '${DB_USERNAME}'
+            MYSQL_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+            MYSQL_EXTRA_OPTIONS: '${MYSQL_EXTRA_OPTIONS:-}'
+        volumes:
+            - 'core-db-mysql:/var/lib/mysql'
+            - './vendor/laravel/sail/database/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
+        networks:
+            - core-ntw
+        healthcheck:
+            test:
+                - CMD
+                - mysqladmin
+                - ping
+                - '-p${DB_PASSWORD}'
+            retries: 3
+            timeout: 5s
+    core.db.mongo:
+        image: 'mongodb/mongodb-atlas-local:latest'
+        environment:
+            - 'MONGODB_INITDB_ROOT_USERNAME=${MONGODB_USERNAME:-}'
+            - 'MONGODB_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD:-}'
+        volumes:
+            - 'core-db-mongo:/data/db'
+        ports:
+            - '${MONGODB_PORT_FORWARD:-27017}:27017'
+        networks:
+            - core-ntw
+        healthcheck:
+            test:
+                - CMD
+                - mongosh
+                - 'mongodb://localhost:27017/admin'
+                - '--eval=db.runCommand({ping:1})'
+            retries: 3
+            timeout: 5s
+    core.cache:
+        image: 'redis:alpine'
+        ports:
+            - '${REDIS_PORT_FORWARD:-6379}:6379'
+        volumes:
+            - 'cache-db:/data'
+        networks:
+            - core-ntw
+        healthcheck:
+            test:
+                - CMD
+                - redis-cli
+                - ping
+            retries: 3
+            timeout: 5s
+networks:
+    core-ntw:
+        driver: bridge
+    app-ntw:
+        name: appqontanet_app-ntw
+        external: true
+    # sail:
+    #     driver: bridge
+volumes:
+    core-db-mongo:
+        driver: local
+    core-db-mysql:
+        driver: local
+    cache-db:
+        driver: local

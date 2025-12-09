@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Controllers;
+
+use App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Requests\Find{{model}}ByIdRequest;
+use App\Containers\{{section-name}}\{{container-name}}\UI\{{user-interface}}\Transformers\{{model}}Transformer;
+use App\Containers\{{section-name}}\{{container-name}}\Actions\Find{{model}}ByIdAction;
+use App\Ship\Parents\Controllers\{{base-controller}};
+use Illuminate\Http\JsonResponse;
+
+class Find{{model}}ByIdController extends {{base-controller}}
+{
+    public function __invoke(Find{{model}}ByIdRequest $request): array
+    {
+        ${{entity}} = app(Find{{model}}ByIdAction::class)->run($request);
+
+        return $this->transform(${{entity}}, {{model}}Transformer::class);
+    }
+}

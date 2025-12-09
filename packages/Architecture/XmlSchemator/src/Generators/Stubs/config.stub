@@ -1,0 +1,23 @@
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Section: {{section-name}}
+    | Container: {{container-name}}
+    |--------------------------------------------------------------------------
+    */
+
+    'disks' => [
+        'assets' => [
+            'driver' => 'local',
+            'root' => app_path('Containers/{{section-name}}/{{container-name}}/Data/Assets'),
+        ],
+    ],
+    'testing' => [
+        'seeders' => [
+            'seed:{{~section-name}}:{{~collection-name}}'
+        ],
+    ],
+];

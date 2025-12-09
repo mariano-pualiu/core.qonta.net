@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Containers\{{section-name}}\{{container-name}}\Actions;
+
+use App\Containers\{{section-name}}\{{container-name}}\Models\{{model}};
+use App\Containers\{{section-name}}\{{container-name}}\Tasks\Find{{model}}ByIdTask;
+use App\Ship\Parents\Actions\Action;
+use App\Ship\Parents\Requests\Request;
+use Illuminate\Support\Arr;
+use Vinkla\Hashids\Facades\Hashids;
+
+class Find{{model}}ByIdAction extends Action
+{
+    public function run(Request $request): {{model}}
+    {
+        ${{entity}}_id = $request->id ?? (env('HASH_ID')
+            ? Arr::get(Hashids::decode($request->query('id')), 0)
+            : $request->query('id'));
+
+        return app(Find{{model}}ByIdTask::class)->run(${{entity}}_id);
+    }
+}

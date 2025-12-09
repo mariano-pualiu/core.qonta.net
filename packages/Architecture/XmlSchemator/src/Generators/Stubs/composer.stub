@@ -1,0 +1,6 @@
+{
+  "name": "core/{{section_name}}/{{container_name}}",
+  "description": "{{Container Name}} Container for {{SectionName}}.",
+  "require": {
+  }
+}

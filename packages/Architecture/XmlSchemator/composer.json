@@ -1,0 +1,23 @@
+{
+    "name": "architecture/xmlschemator",
+    "description": "XmlSchemator Container for architecture Section.",
+    "type": "library",
+    "require": {
+        "sabre/xml": "^4.0",
+        "spatie/laravel-data": "^4.18",
+        "archtechx/enums": "^1.1",
+        "mongodb/laravel-mongodb": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Architecture\\XmlSchemator\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Architecture\\XmlSchemator\\Providers\\MainServiceProvider"
+            ]
+        }
+    }
+}

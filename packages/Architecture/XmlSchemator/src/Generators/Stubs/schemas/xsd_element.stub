@@ -1,0 +1,8 @@
+<?php
+
+return [
+    'element_name' => [
+        'attributes' => {{attributes}},
+        'elements' => {{elements}}
+    ],
+];

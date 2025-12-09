@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Containers\{{SectionName}}\{{ContainerName}}\Providers;
+
+use App\Ship\Parents\Providers\MainProvider;
+
+/**
+ * The Main Service Provider of this container, it will be automatically registered in the framework.
+ */
+class MainServiceProvider extends MainProvider
+{
+    /**
+     * Container Service Providers.
+     */
+    public array $serviceProviders = [
+        // InternalServiceProviderExample::class,
+    ];
+
+    /**
+     * Container Aliases
+     */
+    public array $aliases = [
+        // 'Foo' => Bar::class,
+    ];
+
+    /**
+     * Register anything in the container.
+     */
+    public function register(): void
+    {
+        parent::register();
+
+        // $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        // ...
+    }
+
+    /**
+     * Register anything in the container.
+     */
+    public function boot(): void
+    {
+        parent::register();
+
+        $this->app['config']['filesystems.disks.{{section_name}}-{{~container-name}}-assets'] = config('{{section_name}}-{{~container-name}}.disks.assets');
+    }
+}

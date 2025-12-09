@@ -1,0 +1,60 @@
+<?php
+
+namespace App\Containers\{{section-name}}\{{container-name}}\UI\CLI\Commands;
+
+use App\Ship\Parents\Commands\ConsoleCommand;
+use Illuminate\Database\ConnectionResolverInterface;
+
+class {{collection-name}}SeedCommand extends ConsoleCommand
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'seed:{{~section-name}}:{{~collection-name}}
+                {--db-connection= : The database connection to use}
+                {--sql-file-path= : The sql path name and location to seed from}';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Seeds {{section-name}} {{%collection-name}}';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle(ConnectionResolverInterface $connections)
+    {
+        $sqlFilePath = $this->input->getOption('sql-file-path');
+
+        $connectionName = $this->input->getOption('db-connection');
+
+        $connection = $connections->connection($connectionName);
+
+        $host = $connection->getConfig('host');
+        $username = 'root' ?? $connection->getConfig('username');
+        $password = 'root' ?? $connection->getConfig('password');
+        $database = $connection->getConfig('database');
+
+        $this->info('Restoring : "'.$sqlFilePath.'" into database: '.$database);
+
+        $command = sprintf('mysql -h %s -u %s -p\'%s\' %s < %s', $host, $username, $password, $database, $sqlFilePath);
+
+        exec($command);
+    }
+}

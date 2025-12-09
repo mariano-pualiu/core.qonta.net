@@ -1,0 +1,19 @@
+<?php
+
+namespace {{BaseNamespace}};
+
+use {{AttributesNamespace}};
+use App\Containers\Architecture\XmlSchemator\Analyzers\Xml\Values\Concrete\ElementData;
+{{class:use-element-namespaces}}
+/**
+ * {{class:annotation}}
+ */
+class {{ClassName}} extends ElementData
+{
+    # Elements{{class:elements}}
+    public function __construct(
+        # Properties{{class:properties}}
+        # Attributes{{class:attributes}}
+    )
+    {}
+}

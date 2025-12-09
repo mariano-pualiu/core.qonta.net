@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Containers\{{SectionName}}\{{ContainerName}}\Values\{{VersionNumber}}\Attributes\{{SubNamespace}};
+
+use App\Containers\{{SectionName}}\{{ContainerName}}\Enums\{{VersionNumber}}\{{EnumsSubNamespace}};
+use App\Containers\Architecture\XmlSchemator\Analyzers\Xml\Enums\Attributes\Values\UseEnum;
+use App\Containers\Architecture\XmlSchemator\Analyzers\Xml\Values\Concrete\AttributeData;
+
+/**
+ * {{class:annotation}}
+ */
+class {{ClassName}}Attribute extends AttributeData
+{
+    const FIXED = {{fixed:constant}};
+
+    const NAME = '{{name:constant}}';
+
+    const USE = UseEnum::{{use:option}};
+
+    const TYPE = {{type:constant}}::{{model-name}};
+}

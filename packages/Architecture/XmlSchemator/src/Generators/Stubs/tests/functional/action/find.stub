@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Containers\{{section-name}}\{{container-name}}\UI\API\Tests\Functional;
+
+use App\Containers\{{section-name}}\{{container-name}}\Models\{{model-name}};
+use App\Containers\{{section-name}}\{{container-name}}\Tests\ApiTestCase;
+use App\Containers\{{section-name}}\{{container-name}}\UI\API\Transformers\{{model-name}}Transformer;
+
+/**
+ * Class {{class-name}}.
+ *
+ * @group api
+ * @group {{~section-name}}
+ * @group {{~section-name}}_api
+ * @group {{~container-name}}
+ * @group {{~container-name}}_api
+ * @group {{~model-name}}
+ * @group {{~model-name}}_api
+ */
+class {{class-name}} extends ApiTestCase
+{
+    // the endpoint to be called within this test (e.g., get@v1/users)
+    protected string $endpoint = '{{method}}@v{{endpoint-version}}/{{endpoint-url}}';
+
+    // fake some access rights
+    protected array $access = [
+        'permissions' => '',
+        'roles'       => '',
+    ];
+
+    public function test_{{~model-name}}_can_be_found_by_id_from_api(): void
+    {
+        ${{~model-name}} = {{model-name}}::inRandomOrder()->first();
+
+        // send the HTTP request
+        $response = $this->injectId(${{~model-name}}->id)->makeCall();
+
+        // assert the response status
+        $response->assertStatus(200);
+
+        // make other asserts here
+        $data = (new {{model-name}}Transformer)->transform(${{~model-name}});
+        $response->assertJson(['data' => $data]);
+
+        // make other asserts here
+    }
+}

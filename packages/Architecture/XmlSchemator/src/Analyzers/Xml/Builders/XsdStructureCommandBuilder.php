@@ -6,12 +6,11 @@ use Architecture\XmlSchemator\Analyzers\Xml\Enums\NodesEnum;
 use Architecture\XmlSchemator\Analyzers\Xml\Enums\RestrictionsEnum;
 use Architecture\XmlSchemator\Analyzers\Xml\Values;
 use Architecture\XmlSchemator\Analyzers\Xml\Values\Schema;
-use Architecture\XmlSchemator\Analyzers\Xml\Values\SchemaNodeValue;
 use Architecture\XmlSchemator\Analyzers\Xml\Values\Schema\ComplexType\Attribute\SimpleType\Restriction;
 use Architecture\XmlSchemator\Builders\Traits;
 use Architecture\XmlSchemator\Parents\Builders\CommandBuilder;
+use Architecture\XmlSchemator\Providers\MainServiceProvider;
 use Illuminate\Support\Facades\Storage;
-use Sabre\Xml\Reader;
 use Sabre\Xml\Service;
 
 class XsdStructureCommandBuilder extends CommandBuilder
@@ -64,7 +63,7 @@ class XsdStructureCommandBuilder extends CommandBuilder
     {
         // dump($this->filePath);
         // dump(Storage::disk('architecure-xml_schemator-assets')->path('/'));
-        $xsd = Storage::disk('architecure-xml_schemator-assets')->get($this->filePath);
+        $xsd = Storage::disk(MainServiceProvider::ASSETS_DISK)->get($this->filePath);
         // dd($xsd);
 
         if(!$this->service) {

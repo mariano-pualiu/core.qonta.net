@@ -10,57 +10,36 @@ use App\Ship\Parents\Providers\ServiceProvider as ParentServiceProvider;
  */
 class MainServiceProvider extends ParentServiceProvider /*implements Contracts\SectionContainerPathable*/
 {
-    public const CONTAINERS_DIRECTORY_NAME = 'Containers';
-    public const SECTION_NAME = 'SectionName';
-    public const CONTAINER_NAME = 'ContainerName';
+    use Traits\ConfigsLoaderTrait;
+    use Traits\FileSystemRegisterTrait;
+    use Traits\CommandsLoaderTrait;
+
+    public const SECTION_NAME = 'Architecture';
+    public const CONTAINER_NAME = 'XmlSchemator';
 
     public function register(): void
     {
+        // $this->app['config']['filesystems.disks.architecure-xmlSchemator-assets'] = config('architecture-xmlSchemator.disks.assets');
         $containerPath = self::getSectionContainerPath();
-        dd($containerPath);
-        // $this->loadConfigsFromContainers($containerPath);
-        // $this->loadCommandsFromContainers($containerPath);
+        // dump($containerPath);
+        $this->loadConfigsFromContainers($containerPath);
+        // $coreSections = config('architecture-xmlSchemator.core.sections');
+        // dd($coreSections);
+        // $this->app['config']['filesystems.disks.architecure-xml_schemator-assets'] = config('architecture-xmlSchemator.disks.assets');
+        $this->registerFilesystemDisks();
+
+
+    //     // $this->loadHelpersFromContainers($containerPath);
     }
 
     public function boot(): void
     {
+        $containerPath = self::getSectionContainerPath();
+        $this->loadCommandsFromContainers($containerPath);
     }
 
     public static function getSectionContainerPath(): string
     {
         return dirname(__DIR__);
     }
-
-    // use Traits\ConfigsLoaderTrait;
-    // use Traits\CommandsLoaderTrait;
-    // // use Traits\HelpersLoaderTrait;
-
-    // public const SECTION_NAME = 'Architecture';
-    // public const CONTAINER_NAME = 'XmlSchemator';
-
-    // public array $serviceProviders = [
-    //     // InternalServiceProviderExample::class,
-    // ];
-
-    // public array $aliases = [
-    //     // 'Foo' => Bar::class,
-    // ];
-
-    // public function register(): void
-    // {
-    //     parent::register();
-
-    //     $this->app['config']['filesystems.disks.architecure-xml_schemator-assets'] = config('architecture-xmlSchemator.disks.assets');
-
-    //     $containerPath = self::getSectionContainerPath();
-
-        // $this->loadConfigsFromContainers($containerPath);
-        // $this->loadCommandsFromContainers($containerPath);
-    //     // $this->loadHelpersFromContainers($containerPath);
-    // }
-
-    // public static function getSectionContainerPath(): string
-    // {
-    //     return dirname(__DIR__);
-    // }
 }

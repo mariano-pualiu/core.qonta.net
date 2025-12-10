@@ -1,6 +1,6 @@
 <?php
 
-namespace Architecture\XmlSchemator\UI\CLI\Commands\Simple;
+namespace Architecture\XmlSchemator\Generators\Commands\Simple;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;

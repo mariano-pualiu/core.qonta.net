@@ -8,9 +8,11 @@ use Symfony\Component\Finder\Finder;
 
 trait ConfigsLoaderTrait
 {
+    public const CONFIGS_PATH = 'Configs';
+
     public function loadConfigsFromContainers($containerPath): void
     {
-        $containerConfigsDirectory = $containerPath . '/Configs';
+        $containerConfigsDirectory = $containerPath . '/' . static::CONFIGS_PATH;
 
         $this->loadConfigurationFiles($containerConfigsDirectory);
     }
@@ -25,11 +27,12 @@ trait ConfigsLoaderTrait
     protected function loadConfigurationFiles(string $containerConfigsDirectory)
     {
         $prefixName = Str::camel(self::SECTION_NAME) . '-' . Str::camel(self::CONTAINER_NAME);
-
+        // dump(['prefixName' => $prefixName]);
         $files = $this->getConfigurationFiles($containerConfigsDirectory);
+        // dd(['files' => $files]);
 
         foreach ($files as $key => $path) {
-            $name = $prefixName ? $prefixName . '.' . $key : $key;
+            $name = $prefixName && $prefixName != $key ? $prefixName . '.' . $key : $key;
             $this->mergeConfigFrom($path, $name);
         }
     }

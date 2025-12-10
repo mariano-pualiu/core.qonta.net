@@ -1,6 +1,6 @@
 <?php
 
-namespace Architecture\XmlSchemator\Commands;
+namespace Architecture\XmlSchemator\Generators\Commands;
 
 use Architecture\XmlSchemator\Parents\Commands\GeneratorCommand;
 use Carbon\Carbon;

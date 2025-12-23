@@ -1,0 +1,53 @@
+<?php
+
+namespace App\Containers\Sat\Cfdi\Models\V40\Comprobante\Conceptos\Concepto\Impuestos;
+
+use App\Containers\Architecture\XmlSchemator\Parents\Models\Model;
+use App\Containers\Sat\Cfdi\Models\V40\Comprobante\Conceptos\Concepto\Impuestos\Retenciones as RetencionesModels;
+use App\Containers\Sat\Cfdi\Models\V40\Comprobante\Conceptos\Concepto as ConceptoModels;
+use App\Containers\Sat\Cfdi\Values\V40\Elements\Comprobante\Conceptos\Concepto\Impuestos\RetencionesElement;
+use MongoDB\Laravel\Relations\EmbedsMany;
+use MongoDB\Laravel\Relations\BelongsTo;
+
+class Retenciones extends Model
+{
+    const XML_NAMESPACE = 'http://www.sat.gob.mx/cfd/4';
+    const XML_ELEMENT_NAME = 'Retenciones';
+
+    protected static string $elementData = RetencionesElement::class;
+    /**
+     * A resource key to be used in the serialized responses.
+     */
+    protected string $resourceKey = 'retenciones';
+
+    protected $collection = 'sat_cfdi_v40_retenciones';
+
+    # Fillable
+
+    protected $fillable = [
+    ];
+
+    # Casts
+
+    protected $casts = [
+    ];
+
+    # Deserializers
+
+    public static $xmlDeserializers = [
+        '{http://www.sat.gob.mx/cfd/4}Retencion' => RetencionesModels\Retencion::class,
+    ];
+
+    # Relationships
+
+    final public function retencion(RetencionesModels\Retencion $retencion = null): EmbedsMany
+    {
+        return $this->embedsMany(RetencionesModels\Retencion::class);
+    }
+
+    final public function impuestos(ConceptoModels\Impuestos $impuestos = null): BelongsTo
+    {
+        return $this->belongsTo(ConceptoModels\Impuestos::class);
+    }
+
+}

@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Containers\Sat\Nomina\Values\V12\Attributes\Nomina\Percepciones\Percepcion;
+
+use App\Containers\Sat\Nomina\Enums\V12\Nomina\Percepciones\PercepcionEnum;
+use Architecture\XmlSchemator\Analyzer\Attributes\Enums\Values\UseEnum;
+use Architecture\XmlSchemator\Analyzer\Attributes\AttributeData;
+
+/**
+ * "Atributo requerido para la descripción del concepto de percepción"
+ */
+class ConceptoAttribute extends AttributeData
+{
+    const FIXED = null;
+
+    const NAME = 'Concepto';
+
+    const USE = UseEnum::REQUIRED;
+
+    const TYPE = PercepcionEnum::Concepto;
+}

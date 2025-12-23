@@ -1,3 +1,0 @@
-    # Deserializers
-
-    public static $xmlDeserializers = {{deserializers}};

@@ -1,0 +1,6 @@
+{
+  "name": "core/sat/cfdi",
+  "description": "Cfdi Container for Sat Section.",
+  "require": {
+  }
+}

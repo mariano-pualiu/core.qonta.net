@@ -1,0 +1,3 @@
+[submodule "packages/Architecture/XmlSchemator"]
+	path = packages/Architecture/XmlSchemator
+	url = git@github.com:mariano-pualiu/xml-schemator.git

@@ -2,8 +2,8 @@
 
 namespace App\Containers\Sat\Cfdi\Values\Common\Attributes\Comprobante;
 
-use Architecture\XmlSchemator\Analyzers\Xml\Enums\Attributes\Values\UseEnum;
-use Architecture\XmlSchemator\Analyzers\Xml\Values\Concrete\AttributeData;
+use Architecture\XmlSchemator\Analyzer\Attributes\Enums\Values\UseEnum;
+use Architecture\XmlSchemator\Analyzer\Attributes\AttributeData;
 use App\Containers\Sat\Cfdi\Enums\Common\ComprobanteEnum;
 
 /**

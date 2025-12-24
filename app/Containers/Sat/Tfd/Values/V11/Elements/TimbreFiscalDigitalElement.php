@@ -2,9 +2,10 @@
 
 namespace App\Containers\Sat\Tfd\Values\V11\Elements;
 
+use App\Containers\Sat\Cfdi\Values\Common\Attributes\Comprobante as ComprobanteAttributes;
 use App\Containers\Sat\Tfd\Values\V11\Attributes\TimbreFiscalDigital as TimbreFiscalDigitalAttributes;
 use Architecture\XmlSchemator\Analyzer\Elements\ElementData;
-use App\Containers\Sat\Cfdi\Values\Common\Attributes\Comprobante as ComprobanteAttributes;
+use Spatie\LaravelData\Optional;
 
 /**
  * "Complemento requerido para el Timbrado Fiscal Digital que da validez al Comprobante fiscal digital por Internet."
@@ -17,7 +18,7 @@ class TimbreFiscalDigitalElement extends ElementData
         # Properties{{class:properties}}
         # Attributes
         #[WithCastable(ComprobanteAttributes\VersionAttribute::class)]
-        public ComprobanteAttributes\VersionAttribute $ComprobanteVersion,
+        public ComprobanteAttributes\VersionAttribute|Optional $ComprobanteVersion,
 
         #[WithCastable(TimbreFiscalDigitalAttributes\VersionAttribute::class)]
         public TimbreFiscalDigitalAttributes\VersionAttribute $Version,

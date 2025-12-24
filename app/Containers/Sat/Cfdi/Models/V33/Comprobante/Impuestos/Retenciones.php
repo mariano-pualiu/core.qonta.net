@@ -2,7 +2,7 @@
 
 namespace App\Containers\Sat\Cfdi\Models\V33\Comprobante\Impuestos;
 
-use App\Containers\Architecture\XmlSchemator\Parents\Models\Model;
+use Architecture\XmlSchemator\Parents\Models\Model;
 use App\Containers\Sat\Cfdi\Models\V33\Comprobante\Impuestos\Retenciones as RetencionesModels;
 use App\Containers\Sat\Cfdi\Models\V33\Comprobante as ComprobanteModels;
 use App\Containers\Sat\Cfdi\Values\V33\Elements\Comprobante\Impuestos\RetencionesElement;

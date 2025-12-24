@@ -2,7 +2,7 @@
 
 namespace App\Containers\Sat\Cfdi\Models\V33\Comprobante\Conceptos\Concepto;
 
-use App\Containers\Architecture\XmlSchemator\Parents\Models\Model;
+use Architecture\XmlSchemator\Parents\Models\Model;
 use App\Containers\Sat\Cfdi\Models\V33\Comprobante\Conceptos as ConceptosModels;
 use App\Containers\Sat\Cfdi\Values\V33\Elements\Comprobante\Conceptos\Concepto\ComplementoConceptoElement;
 use MongoDB\Laravel\Relations\BelongsTo;

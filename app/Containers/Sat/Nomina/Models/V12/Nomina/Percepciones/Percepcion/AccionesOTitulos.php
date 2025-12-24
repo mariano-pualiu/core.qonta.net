@@ -2,7 +2,7 @@
 
 namespace App\Containers\Sat\Nomina\Models\V12\Nomina\Percepciones\Percepcion;
 
-use App\Containers\Architecture\XmlSchemator\Parents\Models\Model;
+use Architecture\XmlSchemator\Parents\Models\Model;
 use App\Containers\Sat\Nomina\Models\V12\Nomina\Percepciones as PercepcionesModels;
 use App\Containers\Sat\Nomina\Values\V12\Attributes\Nomina\Percepciones\Percepcion\AccionesOTitulos as AccionesOTitulosAttributes;
 use App\Containers\Sat\Nomina\Values\V12\Elements\Nomina\Percepciones\Percepcion\AccionesOTitulosElement;

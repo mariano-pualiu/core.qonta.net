@@ -2,7 +2,7 @@
 
 namespace App\Containers\Sat\Cfdi\Models\V33\Comprobante\Impuestos\Traslados;
 
-use App\Containers\Architecture\XmlSchemator\Parents\Models\Model;
+use Architecture\XmlSchemator\Parents\Models\Model;
 use App\Containers\Sat\Cfdi\Models\V33\Comprobante\Impuestos as ImpuestosModels;
 use App\Containers\Sat\Cfdi\Values\V33\Attributes\Comprobante\Impuestos\Traslados\Traslado as TrasladoAttributes;
 use App\Containers\Sat\Cfdi\Values\V33\Elements\Comprobante\Impuestos\Traslados\TrasladoElement;

@@ -2,7 +2,7 @@
 
 namespace App\Containers\Sat\Cfdi\Models\V40;
 
-use App\Containers\Architecture\XmlSchemator\Parents\Models\Model;
+use Architecture\XmlSchemator\Parents\Models\Model;
 use Architecture\XmlSchemator\Analyzer\Common\Casts\Attributes\NamespacesCast;
 use App\Containers\Sat\Cfdi\Models\V40\Comprobante as ComprobanteModels;
 use App\Containers\Sat\Cfdi\Values\V40\Attributes\Comprobante as ComprobanteAttributes;

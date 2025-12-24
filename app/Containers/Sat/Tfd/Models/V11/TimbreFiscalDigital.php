@@ -2,15 +2,15 @@
 
 namespace App\Containers\Sat\Tfd\Models\V11;
 
-use App\Containers\Architecture\XmlSchemator\Parents\Models\Model;
+use Architecture\XmlSchemator\Parents\Models\Model;
 use Architecture\XmlSchemator\Analyzer\Common\Casts\Attributes\NamespacesCast;
 use App\Containers\Sat\Cfdi\Models\V40 as CfdiV40Models;
 use App\Containers\Sat\Cfdi\Models\V33 as CfdiV33Models;
 use App\Containers\Sat\Tfd\Values\V11\Attributes\TimbreFiscalDigital as TimbreFiscalDigitalAttributes;
 use App\Containers\Sat\Tfd\Values\V11\Elements\TimbreFiscalDigitalElement;
-use App\Containers\Architecture\XmlSchemator\Exceptions\UnsupportedVersionException;
+use Architecture\XmlSchemator\Common\Exceptions\UnsupportedVersionException;
 use App\Containers\Sat\Cfdi\Values\Common\Attributes\Comprobante as ComprobanteAttributes;
-use App\Containers\Architecture\XmlSchemator\Models\Contracts\TimbreFiscalDigitalInterface;
+use Architecture\XmlSchemator\Contexts\Models\Contracts\TimbreFiscalDigitalInterface;
 use MongoDB\Laravel\Relations\BelongsTo;
 
 class TimbreFiscalDigital extends Model implements TimbreFiscalDigitalInterface

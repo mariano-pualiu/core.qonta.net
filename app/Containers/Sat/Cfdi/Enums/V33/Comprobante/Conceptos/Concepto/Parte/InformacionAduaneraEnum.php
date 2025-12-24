@@ -2,14 +2,14 @@
 
 namespace App\Containers\Sat\Cfdi\Enums\V33\Comprobante\Conceptos\Concepto\Parte;
 
+use ArchTech\Enums\Options;
 use Architecture\XmlSchemator\Analyzer\Common\Collections\RestrictionRulesCollection;
 use Architecture\XmlSchemator\Analyzer\Attributes\Enums\Types;
 use Architecture\XmlSchemator\Analyzer\Attributes\Enums\Values\BaseEnum;
 use Architecture\XmlSchemator\Analyzer\Common\Enums\Contracts;
 use Architecture\XmlSchemator\Analyzer\Common\Rules as CommonRules;
-use ArchTech\Enums\Options;
 
-enum InformacionAduaneraEnum: string implements SimpleTypeEnumContract
+enum InformacionAduaneraEnum: string implements Contracts\SimpleTypeEnumContract
 {
     use Options;
 

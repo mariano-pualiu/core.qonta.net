@@ -2,14 +2,13 @@
 
 namespace App\Containers\Sat\Tfd\Enums\V11;
 
-use Architecture\XmlSchemator\Analyzer\Common\Collections\RestrictionRulesCollection;
+use ArchTech\Enums\Options;
 use Architecture\XmlSchemator\Analyzer\Attributes\Enums\Types;
 use Architecture\XmlSchemator\Analyzer\Attributes\Enums\Values\BaseEnum;
 use Architecture\XmlSchemator\Analyzer\Common\Enums\Contracts;
 use Architecture\XmlSchemator\Analyzer\Common\Rules as CommonRules;
-use ArchTech\Enums\Options;
 
-enum TimbreFiscalDigitalEnum: string implements SimpleTypeEnumContract
+enum TimbreFiscalDigitalEnum: string implements Contracts\SimpleTypeEnumContract
 {
     use Options;
 
@@ -63,24 +62,24 @@ enum TimbreFiscalDigitalEnum: string implements SimpleTypeEnumContract
             ],
             TimbreFiscalDigitalEnum::UUID             => [
                 CommonRules\WhiteSpaceRule::class => new CommonRules\WhiteSpaceRule('collapse'),
-                CommonRules\LengthRule::class => new CommonRules\LengthRule('36'),
-                CommonRules\PatternRule::class => new CommonRules\PatternRule('[a-f0-9A-F]{8}-[a-f0-9A-F]{4}-[a-f0-9A-F]{4}-[a-f0-9A-F]{4}-[a-f0-9A-F]{12}'),
+                CommonRules\LengthRule::class     => new CommonRules\LengthRule('36'),
+                CommonRules\PatternRule::class    => new CommonRules\PatternRule('[a-f0-9A-F]{8}-[a-f0-9A-F]{4}-[a-f0-9A-F]{4}-[a-f0-9A-F]{4}-[a-f0-9A-F]{12}'),
             ],
             TimbreFiscalDigitalEnum::FechaTimbrado    => Types\TdCFDIEnum::T_FechaH->restrictionRules(),
             TimbreFiscalDigitalEnum::RfcProvCertif    => Types\TdCFDIEnum::T_RFC_PM->restrictionRules(),
             TimbreFiscalDigitalEnum::Leyenda          => [
                 CommonRules\WhiteSpaceRule::class => new CommonRules\WhiteSpaceRule('collapse'),
-                CommonRules\MinLengthRule::class => new CommonRules\MinLengthRule('12'),
-                CommonRules\MaxLengthRule::class => new CommonRules\MaxLengthRule('150'),
-                CommonRules\PatternRule::class => new CommonRules\PatternRule('([A-Z]|[a-z]|[0-9]| |Ñ|ñ|!|"|%|&|'|´|-|:|;|>|=|<|@|_|,|\{|\}|`|~|á|é|í|ó|ú|Á|É|Í|Ó|Ú|ü|Ü){1,150}'),
+                CommonRules\MinLengthRule::class  => new CommonRules\MinLengthRule('12'),
+                CommonRules\MaxLengthRule::class  => new CommonRules\MaxLengthRule('150'),
+                CommonRules\PatternRule::class    => new CommonRules\PatternRule("([A-Z]|[a-z]|[0-9]| |Ñ|ñ|!|\"|%|&|'|´|-|:|;|>|=|<|@|_|,|\{|\}|`|~|á|é|í|ó|ú|Á|É|Í|Ó|Ú|ü|Ü){1,150}"),
             ],
             TimbreFiscalDigitalEnum::SelloCFD         => [
                 CommonRules\WhiteSpaceRule::class => new CommonRules\WhiteSpaceRule('collapse'),
             ],
             TimbreFiscalDigitalEnum::NoCertificadoSAT => [
-                CommonRules\LengthRule::class => new CommonRules\LengthRule('20'),
+                CommonRules\LengthRule::class     => new CommonRules\LengthRule('20'),
                 CommonRules\WhiteSpaceRule::class => new CommonRules\WhiteSpaceRule('collapse'),
-                CommonRules\PatternRule::class => new CommonRules\PatternRule('[0-9]{20}'),
+                CommonRules\PatternRule::class    => new CommonRules\PatternRule('[0-9]{20}'),
             ],
             TimbreFiscalDigitalEnum::SelloSAT         => [
                 CommonRules\WhiteSpaceRule::class => new CommonRules\WhiteSpaceRule('collapse'),

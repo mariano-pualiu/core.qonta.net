@@ -2,7 +2,7 @@
 
 namespace App\Containers\Sat\Cfdi\Models\V40\Comprobante\Conceptos\Concepto\Parte;
 
-use App\Containers\Architecture\XmlSchemator\Parents\Models\Model;
+use Architecture\XmlSchemator\Parents\Models\Model;
 use App\Containers\Sat\Cfdi\Models\V40\Comprobante\Conceptos\Concepto as ConceptoModels;
 use App\Containers\Sat\Cfdi\Values\V40\Attributes\Comprobante\Conceptos\Concepto\Parte\InformacionAduanera as InformacionAduaneraAttributes;
 use App\Containers\Sat\Cfdi\Values\V40\Elements\Comprobante\Conceptos\Concepto\Parte\InformacionAduaneraElement;

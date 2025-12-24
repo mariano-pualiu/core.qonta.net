@@ -2,7 +2,7 @@
 
 namespace App\Containers\Sat\Cfdi\Models\V33\Comprobante;
 
-use App\Containers\Architecture\XmlSchemator\Parents\Models\Model;
+use Architecture\XmlSchemator\Parents\Models\Model;
 use App\Containers\Sat\Cfdi\Models\V33 as CfdiV33Models;
 use App\Containers\Sat\Cfdi\Values\V33\Attributes\Comprobante\Receptor as ReceptorAttributes;
 use App\Containers\Sat\Cfdi\Values\V33\Elements\Comprobante\ReceptorElement;

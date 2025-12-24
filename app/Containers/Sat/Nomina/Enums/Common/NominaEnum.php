@@ -2,10 +2,9 @@
 
 namespace App\Containers\Sat\Nomina\Enums\Common;
 
-use Architecture\XmlSchemator\Analyzers\Xml\Enums\Attributes\Values\BaseEnum;
-use Architecture\XmlSchemator\Analyzers\Xml\Enums\Contracts\SimpleTypeEnumContract;
-use Architecture\XmlSchemator\Analyzers\Xml\Rules;
 use ArchTech\Enums\Options;
+use Architecture\XmlSchemator\Analyzer\Attributes\Enums\Values\BaseEnum;
+use Architecture\XmlSchemator\Analyzer\Common\Enums\Contracts\SimpleTypeEnumContract;
 
 enum NominaEnum: string implements SimpleTypeEnumContract
 {

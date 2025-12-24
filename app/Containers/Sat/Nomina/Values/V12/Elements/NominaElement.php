@@ -2,9 +2,10 @@
 
 namespace App\Containers\Sat\Nomina\Values\V12\Elements;
 
+use App\Containers\Sat\Cfdi\Values\Common\Attributes\Comprobante as ComprobanteAttributes;
 use App\Containers\Sat\Nomina\Values\V12\Attributes\Nomina as NominaAttributes;
 use Architecture\XmlSchemator\Analyzer\Elements\ElementData;
-use App\Containers\Sat\Cfdi\Values\Common\Attributes\Comprobante as ComprobanteAttributes;
+use Spatie\LaravelData\Optional;
 
 /**
  * "Complemento para incorporar al Comprobante Fiscal Digital por Internet (CFDI) la información que ampara conceptos de ingresos por salarios, la prestación de un servicio personal subordinado o conceptos asimilados a salarios (Nómina)."
@@ -23,7 +24,7 @@ class NominaElement extends ElementData
         # Properties{{class:properties}}
         # Attributes
         #[WithCastable(ComprobanteAttributes\VersionAttribute::class)]
-        public ComprobanteAttributes\VersionAttribute $ComprobanteVersion,
+        public ComprobanteAttributes\VersionAttribute|Optional $ComprobanteVersion,
 
         #[WithCastable(NominaAttributes\VersionAttribute::class)]
         public NominaAttributes\VersionAttribute $Version,

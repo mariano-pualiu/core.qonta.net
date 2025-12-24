@@ -2,7 +2,7 @@
 
 namespace App\Containers\Sat\Nomina\Models\V12\Nomina;
 
-use App\Containers\Architecture\XmlSchemator\Parents\Models\Model;
+use Architecture\XmlSchemator\Parents\Models\Model;
 use App\Containers\Sat\Nomina\Models\V12\Nomina\Deducciones as DeduccionesModels;
 use App\Containers\Sat\Nomina\Models\V12 as NominaV12Models;
 use App\Containers\Sat\Nomina\Values\V12\Attributes\Nomina\Deducciones as DeduccionesAttributes;

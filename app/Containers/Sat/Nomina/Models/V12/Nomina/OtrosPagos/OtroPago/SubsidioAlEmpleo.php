@@ -2,7 +2,7 @@
 
 namespace App\Containers\Sat\Nomina\Models\V12\Nomina\OtrosPagos\OtroPago;
 
-use App\Containers\Architecture\XmlSchemator\Parents\Models\Model;
+use Architecture\XmlSchemator\Parents\Models\Model;
 use App\Containers\Sat\Nomina\Models\V12\Nomina\OtrosPagos as OtrosPagosModels;
 use App\Containers\Sat\Nomina\Values\V12\Attributes\Nomina\OtrosPagos\OtroPago\SubsidioAlEmpleo as SubsidioAlEmpleoAttributes;
 use App\Containers\Sat\Nomina\Values\V12\Elements\Nomina\OtrosPagos\OtroPago\SubsidioAlEmpleoElement;

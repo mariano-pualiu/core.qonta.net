@@ -2,15 +2,15 @@
 
 namespace App\Containers\Sat\Cfdi\Models\V40\Comprobante;
 
-use App\Containers\Architecture\XmlSchemator\Parents\Models\Model;
+use Architecture\XmlSchemator\Parents\Models\Model;
 use App\Containers\Sat\Cfdi\Models\V40 as CfdiV40Models;
 use App\Containers\Sat\Cfdi\Values\V40\Elements\Comprobante\ComplementoElement;
 use App\Containers\Sat\Nomina\Models\V12 as NominaV12Models;
 use App\Containers\Sat\Nomina\Values\Common\Attributes\Nomina as NominaAttributes;
 use App\Containers\Sat\Tfd\Models\V11 as TimbreFiscalDigitalV11Models;
 use App\Containers\Sat\Tfd\Values\Common\Attributes\TimbreFiscalDigital as TimbreFiscalDigitalAttributes;
-use App\Containers\Architecture\XmlSchemator\Exceptions\UnsupportedVersionException;
-use App\Containers\Architecture\XmlSchemator\Models\Contracts\ComplementoInterface;
+use Architecture\XmlSchemator\Common\Exceptions\UnsupportedVersionException;
+use Architecture\XmlSchemator\Contexts\Models\Contracts\ComplementoInterface;
 use MongoDB\Laravel\Relations\BelongsTo;
 use MongoDB\Laravel\Relations\HasOne;
 

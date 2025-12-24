@@ -2,7 +2,7 @@
 
 namespace App\Containers\Sat\Nomina\Models\V12\Nomina\OtrosPagos;
 
-use App\Containers\Architecture\XmlSchemator\Parents\Models\Model;
+use Architecture\XmlSchemator\Parents\Models\Model;
 use App\Containers\Sat\Nomina\Models\V12\Nomina\OtrosPagos\OtroPago as OtroPagoModels;
 use App\Containers\Sat\Nomina\Models\V12\Nomina as NominaModels;
 use App\Containers\Sat\Nomina\Values\V12\Attributes\Nomina\OtrosPagos\OtroPago as OtroPagoAttributes;

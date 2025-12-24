@@ -2,7 +2,7 @@
 
 namespace App\Containers\Sat\Nomina\Models\V12;
 
-use App\Containers\Architecture\XmlSchemator\Parents\Models\Model;
+use Architecture\XmlSchemator\Parents\Models\Model;
 use AArchitecture\XmlSchemator\Analyzer\Common\Casts\Attributes\NamespacesCast;
 use App\Containers\Sat\Cfdi\Models\V40 as CfdiV40Models;
 use App\Containers\Sat\Cfdi\Models\V33 as CfdiV33Models;
@@ -10,8 +10,8 @@ use App\Containers\Sat\Nomina\Models\V12\Nomina as NominaModels;
 use App\Containers\Sat\Nomina\Values\V12\Attributes\Nomina as NominaAttributes;
 use App\Containers\Sat\Nomina\Values\V12\Elements\NominaElement;
 use App\Containers\Sat\Cfdi\Values\Common\Attributes\Comprobante as ComprobanteAttributes;
-use App\Containers\Architecture\XmlSchemator\Exceptions\UnsupportedVersionException;
-use App\Containers\Architecture\XmlSchemator\Models\Contracts\NominaInterface;
+use Architecture\XmlSchemator\Common\Exceptions\UnsupportedVersionException;
+use Architecture\XmlSchemator\Contexts\Models\Contracts\NominaInterface;
 use MongoDB\Laravel\Relations\BelongsTo;
 use MongoDB\Laravel\Relations\HasOne;
 

@@ -39,6 +39,7 @@
         "apiato/core": "^13.1",
         "laravel/passport": "^13.0",
         "laravel/telescope": "^5.16",
+        "lorisleiva/laravel-actions": "^2.9",
         "spatie/laravel-permission": "^6.0",
         "wikimedia/composer-merge-plugin": "^2.1"
     },

@@ -2,7 +2,7 @@
 
 namespace App\Containers\Sat\Nomina\Models\V12\Nomina\Emisor;
 
-use App\Containers\Architecture\XmlSchemator\Parents\Models\Model;
+use Architecture\XmlSchemator\Parents\Models\Model;
 use App\Containers\Sat\Nomina\Models\V12\Nomina as NominaModels;
 use App\Containers\Sat\Nomina\Values\V12\Attributes\Nomina\Emisor\EntidadSNCF as EntidadSNCFAttributes;
 use App\Containers\Sat\Nomina\Values\V12\Elements\Nomina\Emisor\EntidadSNCFElement;

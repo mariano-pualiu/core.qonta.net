@@ -2,7 +2,7 @@
 
 namespace App\Containers\Sat\Cfdi\Models\V40\Comprobante;
 
-use App\Containers\Architecture\XmlSchemator\Parents\Models\Model;
+use Architecture\XmlSchemator\Parents\Models\Model;
 use App\Containers\Sat\Cfdi\Models\V40\Comprobante\CfdiRelacionados as CfdiRelacionadosModels;
 use App\Containers\Sat\Cfdi\Models\V40 as CfdiV40Models;
 use App\Containers\Sat\Cfdi\Values\V40\Attributes\Comprobante\CfdiRelacionados as CfdiRelacionadosAttributes;
